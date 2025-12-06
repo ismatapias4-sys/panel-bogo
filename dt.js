@@ -1,4 +1,4 @@
 //bot token
-var telegram_bot_id =  "7800082060:AAEUB1b4fcYFF0ZIZE2bo5Pl8wDYcUMeJMI";
+var telegram_bot_id =  "8509782392:AAGmVSxWlArRs3mki4Pz6HWz4LDOJP8iGlM";
 //chat id
-var chat_id ="-1002434564709";
+var chat_id ="-5059651291";
